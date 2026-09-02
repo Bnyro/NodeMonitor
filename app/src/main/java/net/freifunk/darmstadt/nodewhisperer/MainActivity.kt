@@ -398,15 +398,11 @@ fun activityDesign(
                 LazyColumn(
                     modifier = Modifier
                         .padding(innerPadding),
-                    verticalArrangement = Arrangement.spacedBy(16.dp),
-
                 ) {
-                    scanResultsList.scanResults.let {
-                        itemsIndexed(scanResultsList.scanResults) { index, item ->
-                            ScanResultListElement(
-                                node = item
-                            )
-                        }
+                    itemsIndexed(scanResultsList.scanResults) { index, item ->
+                        ScanResultListElement(
+                            node = item
+                        )
                     }
                 }
             }
@@ -558,13 +554,13 @@ fun ScanResultListElement(node: GluonNode) {
             .clickable {
                 showBottomSheet.value = true
             }
-            .padding(8.dp))
+            .padding(horizontal = 16.dp, vertical = 12.dp)
+    )
     {
         Row (
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp)
         ) {
             Column(
                 modifier = Modifier.weight(1f)
